@@ -161,10 +161,27 @@ public class BankApp {
                                     valid = false;
                                     break;
                                 }*/
-                            }    
+                            }
+                            if (!valid){
+                                System.out.print("\tDo you want to continue adding (Y/n)? ");
+                                if (SCANNER.nextLine().strip().toUpperCase().equals("Y")) continue;
+                                screen = DASHBOARD;
+                                break;
+                            }
                         }while(!valid);
 
-                        
+                        System.out.println("\tCurrent Account Balance : LKR ");
+                        float CurrentAccountBalance = SCANNER.nextFloat();
+                        //SCANNER.nextLine();
+
+                        System.out.println("\tEnter Deposite Amount : LKR ");
+                        float DepositeAmount = SCANNER.nextFloat();
+                        //SCANNER.nextLine();
+
+
+
+
+
 
 
                     
