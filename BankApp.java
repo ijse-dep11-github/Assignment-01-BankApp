@@ -58,7 +58,7 @@ public class BankApp {
 
                     case CREATE_NEW_ACC:
 
-                        String id;
+                        String id = "SDB-00000";
                         String name;
                         int deposit;
                         boolean valid;
@@ -89,13 +89,18 @@ public class BankApp {
 
 
                         }while (!valid);
-
+                        String[] newCustomerIds = new String[customerId.length + 1];
                         String[] newCustomer = new String[customerName.length + 1];
                         for (int i = 0; i < customerName.length; i++) {
+                         id = String.format("SDB-%05d", (i+1));
                         newCustomer[i] = customerName[i];
+                        newCustomerIds[i] = customerId[i];
                         }
+                        newCustomerIds[newCustomerIds.length-1] = id;
                         newCustomer[newCustomer.length -1] = name;
                         customerName = newCustomer;
+                        customerId = newCustomerIds;
+
 
                         do{
 
@@ -126,7 +131,14 @@ public class BankApp {
             
                     
                     
+                    
                     case DEPOSITS:
+
+                    do{
+                        valid = true;
+
+
+                    }while(!valid);
                 
                 
                 
