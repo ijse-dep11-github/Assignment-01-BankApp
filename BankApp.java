@@ -24,6 +24,11 @@ public class BankApp {
         String[] customerId = new String[0];
         String[] customerName = new String[0];
 
+        float currentAccountBalance = 0;
+        float depositeAmount = 0;
+        float newAccountBalance = 0;
+
+
          main_Loop:
     
         do{
@@ -134,7 +139,7 @@ public class BankApp {
                     
                     
                     
-                    case DEPOSITS:
+                   /* case DEPOSITS:
 
                     do{
                         valid = true;
@@ -161,7 +166,7 @@ public class BankApp {
                                     valid = false;
                                     break;
                                 }*/
-                            }
+                           /*/ }
                             if (!valid){
                                 System.out.print("\tDo you want to continue adding (Y/n)? ");
                                 if (SCANNER.nextLine().strip().toUpperCase().equals("Y")) continue;
@@ -170,15 +175,27 @@ public class BankApp {
                             }
                         }while(!valid);
 
-                        System.out.println("\tCurrent Account Balance : LKR ");
-                        float CurrentAccountBalance = SCANNER.nextFloat();
-                        //SCANNER.nextLine();
+                        System.out.print("\tCurrent Account Balance : LKR ");
+                        
+                        currentAccountBalance = SCANNER.nextFloat();
+                        
+                       // do{
+                           // valid = true;
+                            System.out.print("\tEnter Deposite Amount : LKR ");
+                            depositeAmount = SCANNER.nextFloat();
 
-                        System.out.println("\tEnter Deposite Amount : LKR ");
-                        float DepositeAmount = SCANNER.nextFloat();
-                        //SCANNER.nextLine();
-
-
+                            if (depositeAmount < 500.00){
+                                System.out.printf(ERROR_MSG, "Insufficient Amount");
+                                System.out.print("\tDo you want to continue adding (Y/n)? ");
+                                    if (SCANNER.nextLine().strip().toUpperCase().equals("Y")) continue;
+                                    screen = DASHBOARD;
+                                    break;
+                            //valid = false;
+                            }else {
+                       // } while (!valid);
+                                    newAccountBalance = currentAccountBalance + depositeAmount;
+                                    System.out.printf("\tNew Balance : LKR %.2f ",newAccountBalance);
+                            } */
 
 
 
