@@ -19,6 +19,8 @@ public class BankApp {
 
         String screen = DASHBOARD;
 
+        final String ERROR_MSG = String.format("\t%s%s%s\n", COLOR_RED_BOLD, "%s", RESET);
+
         String[] customerId = new String[0];
         String[] customerName = new String[0];
 
@@ -136,9 +138,36 @@ public class BankApp {
 
                     do{
                         valid = true;
+                        System.out.print("\tEnter Account Number: ");  // SDB-
+                        id = SCANNER.nextLine().toUpperCase().strip();
+                        if (id.isBlank()){
+                            System.out.printf(ERROR_MSG, "ID can't be empty");
+                            valid = false;
+                        }else if (!id.startsWith("SDB-") || id.length() < 9){
+                            System.out.printf(ERROR_MSG, "Invalid ID format");
+                            valid = false;
+                        }else{
+                            String number = id.substring(4);
+                            for (int i = 0; i < number.length(); i++) {
+                                if (!Character.isDigit(number.charAt(i))){
+                                    System.out.printf(ERROR_MSG, "Invalid ID format");
+                                    valid = false;
+                                    break;
+                                }
+                            }
+                           /*  for (int i = 0; i < customerIds.length; i++) {
+                                if (customerIds[i].equals(id)){
+                                    System.out.printf(ERROR_MSG, "Customer ID already exists");
+                                    valid = false;
+                                    break;
+                                }*/
+                            }    
+                        }while(!valid);
+
+                        
 
 
-                    }while(!valid);
+                    
                 
                 
                 
